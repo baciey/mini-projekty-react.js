@@ -1,0 +1,103 @@
+{
+    "rank": [
+        {
+            "id": 0,
+            "name": "Queen Aslog",
+            "time": {
+                "min": 1,
+                "sek": 23,
+                "ms": 9
+            }
+        },
+        {
+            "id": 1,
+            "name": "Ivar",
+            "time": {
+                "min": 0,
+                "sek": 43,
+                "ms": 12
+            }
+        },
+        {
+            "id": 2,
+            "name": "Alfred",
+            "time": {
+                "min": 0,
+                "sek": 50,
+                "ms": 2
+            }
+        },
+        {
+            "id": 3,
+            "name": "Rollo",
+            "time": {
+                "min": 0,
+                "sek": 35,
+                "ms": 99
+            }
+        },
+        {
+            "id": 4,
+            "name": "Bjorn",
+            "time": {
+                "min": 0,
+                "sek": 35,
+                "ms": 75
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lagertha",
+            "time": {
+                "min": 2,
+                "sek": 21,
+                "ms": 76
+            }
+        },
+        {
+            "id": 6,
+            "name": "Ragnar",
+            "time": {
+                "min": 0,
+                "sek": 58,
+                "ms": 3
+            }
+        },
+        {
+            "id": 7,
+            "name": "Athelstan",
+            "time": {
+                "min": 0,
+                "sek": 50,
+                "ms": 45
+            }
+        },
+        {
+            "id": 8,
+            "name": "King Egbert",
+            "time": {
+                "min": 1,
+                "sek": 0,
+                "ms": 0
+            }
+        },
+        {
+            "id": 9,
+            "name": "Siggy",
+            "time": {
+                "min": 1,
+                "sek": 0,
+                "ms": 2
+            }
+        },
+        {
+            "id": 10,
+            "name": "Floki",
+            "time": {
+                "min": 0,
+                "sek": 56,
+                "ms": 65
+            }
+        }
+    ]
+}
