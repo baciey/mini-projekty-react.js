@@ -1,38 +1,396 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.game-info-1player {
+  font-size: 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.game-info-1player .timer {
+  font-family: monospace;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.game-info-1player #myForm {
+  text-align: center;
+}
+
+.game-info-1player #myForm input {
+  padding: 10px;
+  color: black;
+  border: none;
+  font-size: 20px;
+  width: 147px;
+}
+
+.game-info-1player #myForm span.error {
+  color: red;
+  font-size: 14px;
+}
+
+.game-info-1player .fadeOut {
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@media (max-width: 440px) {
+  .game-info-1player #myForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (min-width: 1024px) {
+  .game-info-1player .countdown, .game-info-1player .timer {
+    font-size: 35px;
   }
+  .game-info-1player #myForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.game-board-2players {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #1f2b22;
+}
+
+.game-board-2players button {
+  width: auto;
+}
+
+.infoBoard table {
+  border-collapse: collapse;
+  font-size: 24px;
+  color: whitesmoke;
+  /* WINNER */
+}
+
+.infoBoard table tr.winner {
+  color: greenyellow;
+  /* LOSER */
+  /* DEUCE */
+}
+
+.infoBoard table tr.winner tr.loser {
+  color: grey;
+}
+
+.infoBoard table tr.winner tr.deuce {
+  color: teal;
+}
+
+.infoBoard table tr.winner td.arrow {
+  visibility: hidden;
+  color: lightsalmon;
+  border: none;
+}
+
+.infoBoard table tr.winner td.arrow.active {
+  visibility: unset;
+}
+
+.infoBoard .form {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid grey;
+  font-size: 15px;
+  color: grey;
+}
+
+.infoBoard .form input, .infoBoard .form button {
+  padding: 10px;
+  margin: 5px;
+}
+
+.infoBoard .form span {
+  margin: 5px;
+}
+
+.infoBoard .form span.error {
+  color: red;
+  height: 39px;
+  font-size: 14px;
+}
+
+.flip-card {
+  background-color: transparent;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  margin: 5px;
+  height: calc(20vw - 10px);
+  -ms-flex-preferred-size: calc(20vw - 10px);
+      flex-basis: calc(20vw - 10px);
+  max-width: 110px;
+  max-height: 110px;
+}
+
+.flip-card .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-box-shadow: 3px 3px 3px grey;
+          box-shadow: 3px 3px 3px grey;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.flip-card .flip-card-inner.clicked {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.flip-card .flip-card-inner.checked {
+  display: none;
+  cursor: none;
+}
+
+.flip-card .flip-card-front, .flip-card .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.flip-card .flip-card-front {
+  background-image: url(".././img/cardBack.jpg");
+}
+
+.flip-card .flip-card-back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+@media (min-width: 1024px) {
+  .flip-card {
+    max-width: 120px;
+    max-height: 120px;
+  }
+}
+
+.bodyHome {
+  background-color: #1f2b22;
+  font-family: 'M PLUS 1p', sans-serif;
+  font-size: 30px;
+  height: 100vh;
+}
+
+.bodyHome .nav {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.bodyHome .nav a {
+  color: yellow;
+}
+
+.bodyHome .nav a:hover {
+  color: red;
+}
+
+.bodyHome .logo {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.bodyHome .logo img {
+  width: 300px;
+}
+
+.bodyHome .sonBgc {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.bodyHome .sonBgc img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.2;
+}
+
+.game {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1f2b22;
+}
+
+.game .game-board {
+  width: 100%;
+  background-color: #1f2b22;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.game .game-info {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+button {
+  color: white;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 150px;
+  margin: 0 auto;
+}
+
+button:hover {
+  color: yellow;
+}
+
+@media (min-width: 600px) {
+  .game .game-board {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .game {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .game .game-board {
+    max-width: 700px;
+    height: 100%;
+  }
+  .game .game-info {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    width: auto;
+  }
+}
+
+.ranking {
+  overflow-y: scroll;
+  height: 70vh;
+  margin-top: 20px;
+  background-color: black;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.ranking .tableRank {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.ranking .tableRank td,
+.ranking .tableRank th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  word-wrap: break-word;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  height: 100vh;
+  text-align: center;
 }

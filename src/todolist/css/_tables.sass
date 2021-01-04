@@ -1,0 +1,45 @@
+.containerToDo .tasks
+  background-color: #576b80
+  color: #dae0e6
+  max-width: 500px
+  overflow-x: auto
+  margin-bottom: 10px
+  table
+    border-collapse: collapse
+    width: 100%
+    min-width: 300px
+    table-layout: fixed
+    font-size: 14px
+    .btn
+      cursor: pointer
+      background-color: transparent
+      border: none
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      width: 60%
+      height: 60%
+    td, th
+      padding: 8px
+      word-wrap: break-word
+      position: relative
+    td.left
+      text-align: left
+    tr:nth-child(even)
+      background-color: #72879c
+    tr:hover
+      background-color: grey
+    th
+      padding-top: 12px
+      padding-bottom: 12px
+      text-align: left
+      background-color: #4CAF50
+      color: white
+    th.dateRow
+      width: 85px
+    tr.addRow
+      border-top: white 2px solid
+    td.left.important
+      color: darkred
+      font-weight: bold

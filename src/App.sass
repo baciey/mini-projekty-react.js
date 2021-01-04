@@ -1,0 +1,55 @@
+
+@import 'todolist/css/todolist'
+@import 'hangman/hangman'
+@import 'dbz/css/dbz'
+
+body
+  font: 14px Arial, sans-serif
+  height: 100vh
+  text-align: center
+  margin: 0
+
+.home-container
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  h1
+    color: #444
+  .flex-child
+    margin: 20px
+    position: relative
+    filter: brightness(0.5)
+
+    a
+      position: relative
+      display: block
+      width: 100%
+      height: 100%
+      img
+        width: 100%
+        height: 100%
+      p
+        position: absolute
+        top: 0
+        left: 0
+        background: rgba(0,0,0, 0.7)
+        padding: 20px
+        color: white
+        margin: 0
+  .flex-child:hover.flex-child
+    filter: brightness(1)
+
+@media screen and ( min-width: 530px  )
+  .home-container
+    .flex-child
+      width: 50%
+      margin: 10px auto 10px auto
+
+@media screen and ( min-width: 768px  )
+  .home-container
+    flex-direction: row
+    h1
+      flex-basis: 100%
+    .flex-child
+      flex-basis: calc(33% - 40px)

@@ -1,0 +1,21 @@
+@import 'form', 'tables', 'slider'
+
+@media (min-width: 350px)
+  .containerToDo
+    align-items: center
+    label
+      display: unset
+    table
+      font-size: 15px
+      th.dateRow
+        width: unset
+
+@media (min-width: 1024px)
+  .containerToDo
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-around
+    align-items: flex-start
+    align-content: flex-start
+    .form
+      margin: 20px

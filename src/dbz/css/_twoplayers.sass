@@ -1,0 +1,50 @@
+.game-board-2players
+  height: 100vh
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  background-color: #1f2b22
+  button
+    width: auto
+  .form
+    padding: 20px
+    display: flex
+    flex-direction: column
+    border: 1px solid grey
+    font-size: 15px
+    color: grey
+    input, button
+      padding: 10px
+      margin: 5px
+    span
+      margin: 5px
+    span.error
+      color: red
+      height: 39px
+      font-size: 14px
+.infoBoard
+  table
+    border-collapse: collapse
+    font-size: 24px
+    color: whitesmoke
+    td,th
+      border: 1px solid #dddddd
+      text-align: left
+      padding: 8px
+      word-wrap: break-word
+      /* WINNER */
+    tr.winner
+      color: greenyellow
+      /* LOSER */
+    tr.loser
+      color: grey
+    /* DEUCE */
+    tr.deuce
+      color: teal
+    td.arrow
+      visibility: hidden
+      color: lightsalmon
+      border: none
+    td.arrow.active
+      visibility: unset

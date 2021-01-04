@@ -1,0 +1,43 @@
+
+.game-info-1player
+  font-size: 20px
+  color: white
+  .timer
+    font-family: monospace
+  #myForm
+    text-align: center
+    input
+      padding: 10px
+      color: black
+      border: none
+      font-size: 20px
+      width: 147px
+    span.error
+      color: red
+      font-size: 14px
+.fadeOut
+  animation-name: fadeOut
+  animation-iteration-count: 1
+  animation-duration: 4s
+  animation-fill-mode: forwards
+@keyframes fadeOut
+  from
+    opacity: 1
+  to
+    opacity: 0
+
+@media (max-width: 440px)
+  .game-info-1player
+    #myForm
+      display: flex
+      flex-direction: column
+      align-items: center
+
+@media (min-width: 1024px)
+  .game-info-1player
+    .countdown, .timer
+      font-size: 35px
+    #myForm
+      display: flex
+      flex-direction: column
+      align-items: center
